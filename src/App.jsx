@@ -13,13 +13,14 @@ import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  // Default to light theme as primary
+  const [darkMode, setDarkMode] = useState(false);
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
-    // Check saved theme or default to dark mode
+    // Only activate dark theme if user explicitly previously selected 'dark'
     const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme !== 'light';
+    const isDark = savedTheme === 'dark';
     setDarkMode(isDark);
     if (isDark) {
       document.documentElement.classList.add('dark');
@@ -43,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#07090D] text-slate-900 dark:text-[#F5F7FA] transition-colors duration-200 relative selection:bg-emerald-500/20 selection:text-emerald-500">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#07090D] text-slate-900 dark:text-[#F5F7FA] transition-colors duration-200 relative selection:bg-emerald-500/20 selection:text-emerald-700 dark:selection:text-emerald-400">
       
       {/* 1. Navbar */}
       <Navbar 

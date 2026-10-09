@@ -4,12 +4,8 @@
 
 @layer base {
   body {
-    @apply bg-[#07090D] text-[#F5F7FA] selection:bg-emerald-500/20 selection:text-emerald-400 font-sans antialiased;
+    @apply bg-[#FAFAFA] dark:bg-[#07090D] text-[#0F172A] dark:text-[#F5F7FA] selection:bg-emerald-500/20 selection:text-emerald-700 dark:selection:text-emerald-400 font-sans antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
-
-  html.light body {
-    @apply bg-[#FAFAFA] text-[#0F172A] selection:bg-emerald-500/20 selection:text-emerald-700;
   }
 }
 
@@ -22,42 +18,48 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.5);
 }
 
-html.light ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.4);
 }
 
 /* Engineering Subtle Grid Pattern */
 .bg-tech-grid {
   background-size: 48px 48px;
   background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+}
+
+.dark .bg-tech-grid {
+  background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-html.light .bg-tech-grid {
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-}
-
 /* Subtle Engineering Glow */
 .bg-radial-faint {
+  background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 65%);
+}
+.dark .bg-radial-faint {
   background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 65%);
 }
 
 /* Clean Editorial Hairline Border */
 .hairline-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-html.light .hairline-border {
   border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.dark .hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Smooth Interactive link underline */
